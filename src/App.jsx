@@ -1,12 +1,32 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route ,Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { Provider } from 'react-redux';
+import decode from 'jwt-decode';
 import Login from './route/Login';
 import Register from './route/Register';
 import Dashboard from './route/Dashboard';
 
 import store from './store';
+
+const isAuthenticated = () => {
+  const token = localStorage.getItem('token');
+  try {
+    let decoded = decode(token);
+  } catch (err) {
+    return false;
+  }
+
+  return true;
+};
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={(props) => (
+    isAuthenticated()
+      ? <Component {...props} />
+      : <Redirect to='/login' />
+  )} />
+)
 
 class App extends Component {
   render() {
@@ -15,9 +35,10 @@ class App extends Component {
         <Router>
           <div className="app-container">
             <Switch>
-              <Route path="/register" component={props => <Register {...props}/>} />
-              <Route path="/login" component={props => <Login {...props}/>} />
-              <Route path="/dashboard" component={props => <Dashboard {...props}/>} />
+              <Route path="/register" component={props => <Register {...props} />} />
+              <Route path="/login" component={props => <Login {...props} />} />
+              <PrivateRoute path="/dashboard" component={props => <Dashboard {...props} />} />
+              <PrivateRoute path="/" component={props => <Dashboard {...props} />} />
             </Switch>
           </div>
         </Router>

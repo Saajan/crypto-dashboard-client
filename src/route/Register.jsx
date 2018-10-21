@@ -1,3 +1,17 @@
-import {React} from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-export default () => <h1>Register</h1>
+import RegisterForm from '../components/RegisterForm';
+import { requestRegister } from '../actions/actionCreator';
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            requestRegister,
+        },
+        dispatch,
+    );
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm);

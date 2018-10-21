@@ -5,12 +5,14 @@
   "dependencies": {
     "dotenv": "^6.1.0",
     "env-cmd": "^8.0.2",
+    "jwt-decode": "^2.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
     "react-scripts": "2.0.5",
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2"
