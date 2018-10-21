@@ -1,8 +1,7 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 
 export const DashboardWrapper = styled.div`
-  --spacing: 1rem;
   display: flex;
   flex-wrap: wrap;
   display: grid;

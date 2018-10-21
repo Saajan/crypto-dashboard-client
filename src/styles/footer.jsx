@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 export const Footer = styled.div`
     display: flex;
@@ -6,8 +6,8 @@ export const Footer = styled.div`
     flex-basis: 100%;
     justify-content: space-between;
     align-items: center;
-    height: $admin-footer-height;
-    padding: 0 var(--spacing);
+    height: 70px;
+    padding: 0 2em;
     color: #4e5561;
     background-color: #1d2127;
 `;

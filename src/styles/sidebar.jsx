@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 
 export const Navbar = styled.div`
@@ -21,7 +21,6 @@ export const MenuLink = styled.span`
     padding: 1rem 2rem;
     color: #76808f;
     text-decoration: none;
-
     &:hover,
     &:focus {
       color: #fff;
