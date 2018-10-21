@@ -1,6 +1,6 @@
-import React from 'react';
+import React,{Component} from 'react';
 
-export default class RegisterForm extends React.Component {
+export default class RegisterForm extends Component {
 
     state = {
         username: '',

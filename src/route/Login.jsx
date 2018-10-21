@@ -1,9 +1,6 @@
-
-
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { React } from 'react';
 import LoginForm from '../components/LoginForm';
 import { requestLogin } from '../actions/actionCreator';
 

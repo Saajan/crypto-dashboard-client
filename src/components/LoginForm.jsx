@@ -1,6 +1,6 @@
-import React from 'react';
+import React,{Component} from 'react';
 
-export default class LoginForm extends React.Component {
+export default class LoginForm extends Component {
 
     state = {
         username: '',
