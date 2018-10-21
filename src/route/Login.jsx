@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 
 import LoginForm from '../components/LoginForm';
 import { requestLogin } from '../actions/actionCreator';
+import { loginReducer } from '../reducers/loginReducer';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    login: state.login
+})
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators(

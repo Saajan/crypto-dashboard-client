@@ -36,13 +36,16 @@ export const register = async (payload) => {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
             },
             body: payload,
+        }).then((response)=>{
+            return response.json();
         });
+        console.log(response);
+
         return {
-            isError: false,
-            response,
+            ...response,
         };
     } catch (e) {
-        console.log('catching in register api');
+        console.log('catching in login api');
         return {
             isError: true,
         };

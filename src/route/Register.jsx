@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import RegisterForm from '../components/RegisterForm';
 import { requestRegister } from '../actions/actionCreator';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    register : state.register
+});
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators(

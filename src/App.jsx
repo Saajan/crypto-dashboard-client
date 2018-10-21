@@ -9,8 +9,11 @@ import Dashboard from './route/Dashboard';
 
 import store from './store';
 
+import 'antd/dist/antd.css';
+
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');
+  console.log(token);
   try {
     let decoded = decode(token);
   } catch (err) {

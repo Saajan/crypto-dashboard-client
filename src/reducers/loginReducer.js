@@ -9,7 +9,7 @@ const initialState = {
     error: null
 };
 
-export const authReducer = (state = initialState, {
+export const loginReducer = (state = initialState, {
     type,
     payload
 }) => {

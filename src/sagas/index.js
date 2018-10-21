@@ -76,6 +76,7 @@ function* registerSaga({
             success,
             msg
         } = yield call(register, fields);
+        console.log(success,msg);
         if (success) {
             yield put({
                 type: REQUEST_REGISTER_SUCCESS,

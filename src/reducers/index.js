@@ -5,11 +5,15 @@ import {
     routerReducer
 } from 'react-router-redux';
 import {
-    authReducer
-} from './authReducers';
+    loginReducer
+} from './loginReducer';
+import {
+    registerReducer
+} from './registerReducer';
 
 const rootReducer = combineReducers({
-    auth: authReducer,
+    login: loginReducer,
+    register: registerReducer,
     router: routerReducer
 });
 
