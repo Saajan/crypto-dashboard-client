@@ -51,3 +51,28 @@ export const register = async (payload) => {
         };
     }
 };
+
+export const account = async (payload) => {
+    try {
+        console.log(payload);
+        const response = await fetch(`${EXPRESS_SERVER_LINK}/api/getCurrentPrice`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            body: payload,
+        }).then((response)=>{
+            return response.json();
+        });
+        console.log(response);
+
+        return {
+            ...response,
+        };
+    } catch (e) {
+        console.log('catching in login api');
+        return {
+            isError: true,
+        };
+    }
+};

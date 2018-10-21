@@ -1,6 +1,19 @@
-import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
-import Navbar from '../components/Dashboard/Navbar';
+import Dashboard from '../components/Dashboard';
+import { requestAccountData } from '../actions/actionCreator';
 
+const mapStateToProps = state => ({
+    register : state.register
+});
 
-export default () => <h1>Dashboard</h1>
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            requestAccountData,
+        },
+        dispatch,
+    );
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

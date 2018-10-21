@@ -10,11 +10,15 @@ import {
     REQUEST_LOGIN_FAILURE,
     REQUEST_REGISTER,
     REQUEST_REGISTER_SUCCESS,
-    REQUEST_REGISTER_FAILURE
+    REQUEST_REGISTER_FAILURE,
+    REQUEST_ACCOUNT,
+    REQUEST_ACCOUNT_SUCCESS,
+    REQUEST_ACCOUNT_FAILURE,
 } from '../actions/actionTypes';
 import {
     login,
-    register
+    register,
+    account
 } from '../api';
 
 
@@ -76,7 +80,7 @@ function* registerSaga({
             success,
             msg
         } = yield call(register, fields);
-        console.log(success,msg);
+        console.log(success, msg);
         if (success) {
             yield put({
                 type: REQUEST_REGISTER_SUCCESS,
@@ -108,7 +112,29 @@ function* registerSaga({
     }
 }
 
+function* getAccountSaga({
+    payload: {
+        fields
+    }
+}) {
+
+    yield call(account, fields);
+    try {
+        while (true) {
+            yield put({
+                type: 'REQUEST_ACCOUNT_SUCCESS'
+            })
+        }
+    } catch (error) {
+        yield put({
+            type: 'REQUEST_ACCOUNT_FAILURE',
+            error
+        })
+    }
+}
+
 export default function* mySaga() {
     yield takeLatest(REQUEST_LOGIN, loginSaga);
     yield takeLatest(REQUEST_REGISTER, registerSaga);
+    yield takeLatest(REQUEST_ACCOUNT, getAccountSaga);
 }

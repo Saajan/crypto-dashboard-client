@@ -41,7 +41,7 @@ class LoginForm extends Component {
                 requestLogin({
                     fields: formBody,
                     callback: () => {
-                        history.push('/');
+                        history.push('/dashboard/home');
                     },
                 });
             };
