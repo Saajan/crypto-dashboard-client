@@ -3,7 +3,6 @@ import {
     REQUEST_LOGIN_FAILURE
 } from '../actions/actionTypes';
 
-
 const initialState = {
     token: localStorage.getItem('token'),
     error: null
@@ -17,7 +16,7 @@ export const loginReducer = (state = initialState, {
         case REQUEST_LOGIN_SUCCESS:
             {
                 return { ...state,
-                    token: payload
+                    token: payload,
                 };
             }
         case REQUEST_LOGIN_FAILURE:

@@ -16,10 +16,10 @@ const isAuthenticated = () => {
   console.log(token);
   try {
     let decoded = decode(token);
+    console.log(decoded);
   } catch (err) {
     return false;
   }
-
   return true;
 };
 

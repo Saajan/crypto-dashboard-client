@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const Navbar = styled.div`
     flex: 0 0 250px;
     grid-area: nav;
+    background-image: linear-gradient(to right, #f4faff,#e6f6ff);
     background-color: #313541;
 `;
 

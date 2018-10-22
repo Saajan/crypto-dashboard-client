@@ -3,6 +3,8 @@ import { Form, Icon, Input, Button, Row, Col, notification } from 'antd';
 import { Link, } from 'react-router-dom';
 
 import { FormWrapper, SmallFormContainer, Center, Logo } from '../styles/form';
+import {getEncodedData} from '../utils/helpers';
+
 const FormItem = Form.Item;
 
 class RegisterForm extends Component {
@@ -26,13 +28,7 @@ class RegisterForm extends Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-                var formBody = [];
-                for (var property in values) {
-                    var encodedKey = encodeURIComponent(property);
-                    var encodedValue = encodeURIComponent(values[property]);
-                    formBody.push(encodedKey + "=" + encodedValue);
-                }
-                formBody = formBody.join("&");
+                let formBody = getEncodedData(values);
 
                 requestRegister({
                     fields: formBody,

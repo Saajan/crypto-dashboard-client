@@ -1,5 +1,6 @@
 import {
     call,
+    all,
     put,
     takeLatest
 } from 'redux-saga/effects';
@@ -18,7 +19,8 @@ import {
 import {
     login,
     register,
-    account
+    account,
+    coincurrentprice
 } from '../api';
 
 
@@ -37,7 +39,7 @@ function* loginSaga({
         if (success) {
             yield put({
                 type: REQUEST_LOGIN_SUCCESS,
-                payload: token
+                payload: token,
             });
             localStorage.setItem('token', token);
             callback();
@@ -118,13 +120,19 @@ function* getAccountSaga({
     }
 }) {
 
-    yield call(account, fields);
+    console.log("accounts", fields);
+
+    const [accountResponse, coinResponse] = yield all([
+        yield call(account, fields),
+        yield call(coincurrentprice, fields)
+    ])
+
+    const response = [accountResponse, coinResponse];
     try {
-        while (true) {
-            yield put({
-                type: 'REQUEST_ACCOUNT_SUCCESS'
-            })
-        }
+        yield put({
+            type: 'REQUEST_ACCOUNT_SUCCESS',
+            payload: response
+        })
     } catch (error) {
         yield put({
             type: 'REQUEST_ACCOUNT_FAILURE',
