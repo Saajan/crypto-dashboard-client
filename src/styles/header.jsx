@@ -12,6 +12,12 @@ export const Header = styled.header`
 
 export const Heading = styled.h3`
     color:#fff;
+    margin:0px;
+`;
+
+export const User = styled.h3`
+    margin:0px;
+    text-transform:capitalize;
 `;
 
 export const Logo = styled.div`

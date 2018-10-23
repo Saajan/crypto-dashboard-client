@@ -33,6 +33,7 @@ function* loginSaga({
     try {
         const {
             token,
+            username,
             success,
             msg
         } = yield call(login, fields);
@@ -41,6 +42,7 @@ function* loginSaga({
                 type: REQUEST_LOGIN_SUCCESS,
                 payload: token,
             });
+            localStorage.setItem('user', username);
             localStorage.setItem('token', token);
             callback();
         } else {
@@ -48,6 +50,7 @@ function* loginSaga({
                 type: REQUEST_LOGIN_FAILURE,
                 payload: msg
             });
+            localStorage.removeItem('user');
             localStorage.removeItem('token');
         }
     } catch (error) {
