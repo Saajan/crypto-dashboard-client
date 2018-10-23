@@ -20,7 +20,7 @@ import {
     login,
     register,
     account,
-    coincurrentprice
+    coinCurrentPrice
 } from '../api';
 
 
@@ -76,7 +76,7 @@ function* registerSaga({
         callback
     }
 }) {
-    console.log(fields, callback);
+    //console.log(fields, callback);
     try {
         const {
             success,
@@ -120,22 +120,25 @@ function* getAccountSaga({
     }
 }) {
 
-    console.log("accounts", fields);
+    //console.log("accounts", fields);
 
     const [accountResponse, coinResponse] = yield all([
         yield call(account, fields),
-        yield call(coincurrentprice, fields)
+        yield call(coinCurrentPrice, fields)
     ])
 
-    const response = [accountResponse, coinResponse];
+    const response = {
+        accountUser: accountResponse,
+        coinCurrentPrice: coinResponse
+    };
     try {
         yield put({
-            type: 'REQUEST_ACCOUNT_SUCCESS',
+            type: REQUEST_ACCOUNT_SUCCESS,
             payload: response
         })
     } catch (error) {
         yield put({
-            type: 'REQUEST_ACCOUNT_FAILURE',
+            type: REQUEST_ACCOUNT_FAILURE,
             error
         })
     }

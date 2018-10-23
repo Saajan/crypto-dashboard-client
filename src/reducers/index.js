@@ -11,10 +11,15 @@ import {
     registerReducer
 } from './registerReducer';
 
+import {
+    accountReducer
+} from './accountReducer';
+
 const rootReducer = combineReducers({
     login: loginReducer,
     register: registerReducer,
-    router: routerReducer
+    router: routerReducer,
+    account: accountReducer
 });
 
 

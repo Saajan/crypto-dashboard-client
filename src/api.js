@@ -3,7 +3,7 @@ const EXPRESS_SERVER_LINK = process.env.REACT_APP_SERVER_URL;
 
 export const login = async (payload) => {
     try {
-        console.log(payload);
+        //console.log(payload);
         let response = await fetch(`${EXPRESS_SERVER_LINK}/api/signin`, {
             method: 'POST',
             headers: {
@@ -29,7 +29,7 @@ export const login = async (payload) => {
 
 export const register = async (payload) => {
     try {
-        console.log(payload);
+        //console.log(payload);
         const response = await fetch(`${EXPRESS_SERVER_LINK}/api/signup`, {
             method: 'POST',
             headers: {
@@ -54,7 +54,7 @@ export const register = async (payload) => {
 
 export const account = async (payload) => {
     try {
-        console.log(payload);
+        //console.log(payload);
         const response = await fetch(`${EXPRESS_SERVER_LINK}/api/getAccount`, {
             method: 'POST',
             headers: {
@@ -77,9 +77,9 @@ export const account = async (payload) => {
     }
 };
 
-export const coincurrentprice = async (payload) => {
+export const coinCurrentPrice = async (payload) => {
     try {
-        console.log(payload);
+        //console.log(payload);
         const response = await fetch(`${EXPRESS_SERVER_LINK}/api/getCurrentPrice`, {
             method: 'POST',
             headers: {
@@ -89,7 +89,7 @@ export const coincurrentprice = async (payload) => {
         }).then((response)=>{
             return response.json();
         });
-        console.log(response);
+        //console.log(response);
 
         return {
             ...response,

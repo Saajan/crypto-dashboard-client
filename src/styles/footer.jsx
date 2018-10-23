@@ -9,7 +9,7 @@ export const Footer = styled.div`
     height: 70px;
     padding: 0 2em;
     color: #4e5561;
-    background-color: #1d2127;
+    background-color: #ffffff;
 `;
 
 

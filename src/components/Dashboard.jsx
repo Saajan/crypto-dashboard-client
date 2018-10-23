@@ -35,13 +35,13 @@ class Dashboard extends Component {
     };
 
     render() {
-        console.log(this.props);
+        console.log("account full render",this.props,this.state);
         return (
             <DashboardWrapper>
                 <Header />
                 <Sidebar />
                 <Switch>
-                    <Route path="/dashboard/home" component={(props) => <Main {...this.props} />} />
+                    <Route path="/dashboard/home" component={() => <Main {...this.props} />} />
                     <Route path="/dashboard/trade" component={Trade} />
                 </Switch>
                 <Footer />

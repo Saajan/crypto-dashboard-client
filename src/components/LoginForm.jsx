@@ -12,7 +12,6 @@ class LoginForm extends Component {
         super(props, context);
     }
 
-
     componentWillReceiveProps(nextProps) {
         if (nextProps.login.error) {
             notification['error']({
